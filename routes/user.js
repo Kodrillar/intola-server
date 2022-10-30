@@ -17,7 +17,7 @@ router.post("/", asyncErrorHandler( async (req, res)=>{
             "msg":"User already exist!"
         });
    
-    const registerUserQuery = "INSERT INTO users_by_email (email, fullname, password, created_at) VALUES(?, ?, ?, now())";
+    const registerUserQuery = "INSERT INTO users_by_email (email, fullname, password, created_at) VALUES(?, ?, ?, toTimestamp(now()))";
     user = await (await client).execute(registerUserQuery, [email, fullname, password]);
     const webToken = jsonwebtoken(email, fullname);
 
