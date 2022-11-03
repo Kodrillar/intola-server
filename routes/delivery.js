@@ -39,8 +39,8 @@ router.post('/', auth, asyncErrorHandler(async(req, res)=>{
 
     if(!weight || !price || !description || !location || !contact ) return res.status(400).json({"msg":"request body can't be empty"});
 
-    const addDeliveryQuery = "INSERT INTO delivery_by_user(id, email, image, weight, price, description, location, contact) VALUES(now(), ?,?,?,?,?,?,?)";
-    const addDelivery = await(await client).execute(addDeliveryQuery, [email, "image", weight, price, description,location, contact]);
+    const addDeliveryQuery = "INSERT INTO delivery_by_user(id, email, image, weight, price, description, location, contact) VALUES(now(), ?,'https://i.imgur.com/OJYnvEi.jpg',?,?,?,?,?)";
+    const addDelivery = await(await client).execute(addDeliveryQuery, [email, weight, price, description,location, contact]);
     res.json({"msg":"success"});
 }));
 
