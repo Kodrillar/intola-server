@@ -9,9 +9,9 @@ const fileupload = require("express-fileupload");
 const server = http.createServer(app);
 
 
+app.use(helmet());
 app.use(cors());
 app.use(fileupload());
-app.use(helmet());
 app.use(morgan("tiny"));
 
 
