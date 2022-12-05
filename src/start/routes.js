@@ -8,10 +8,12 @@ const donations = require("../routes/donation");
 const shipping = require("../routes/shipping");
 const delivery = require("../routes/delivery");
 const purchase = require("../routes/purchase");
+const path = require('path')
+
 module.exports = function(app){
 
 app.use(express.json())
-app.use("/api/uploads", express.static("uploads"));
+app.use("/api/uploads", express.static(path.join(__dirname, '..', '/uploads')));
 app.use("/api/user/register", user);
 app.use("/api/user/auth", auth );
 app.use("/api/products", products);

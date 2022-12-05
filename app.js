@@ -15,8 +15,8 @@ app.use(fileupload());
 app.use(morgan("tiny"));
 
 
-require("./start/logger")();
-require('./start/routes')(app);
+require("./src/start/logger")();
+require('./src/start/routes')(app);
 
 const port =process.env.PORT || 4000;
 server.listen(port, ()=>{
