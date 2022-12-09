@@ -32,8 +32,6 @@ router.post("/", asyncErrorHandler(async(req, res)=>{
         "wrongPassword":"false"
         });
 
-    
-
 }))
 
 router.get("/:email", asyncErrorHandler(async(req, res)=>{

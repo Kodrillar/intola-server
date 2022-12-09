@@ -6,14 +6,14 @@ const asyncErrorHandler = require("../middleware/asyncErrorHandler");
 
 
 //get all donations
-router.get("/", auth, asyncErrorHandler(async (req, res)=>{
+// router.get("/", auth, asyncErrorHandler(async (req, res)=>{
 
-    const getDonationsQuery = "SELECT * FROM donations_by_user";
-    const getDonations = await(await client).execute(getDonationsQuery);
-    if(!getDonations.rowLength) return res.status(404).json({"msg":"donations not found"});
-    res.send(getDonations.rows);
+//     const getDonationsQuery = "SELECT * FROM donations_by_user";
+//     const getDonations = await(await client).execute(getDonationsQuery);
+//     if(!getDonations.rowLength) return res.status(404).json({"msg":"donations not found"});
+//     res.send(getDonations.rows);
 
-}));
+// }));
 
 //donate
 router.post("/donate", auth, asyncErrorHandler(async(req, res)=>{

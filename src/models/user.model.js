@@ -1,4 +1,16 @@
 const Joi = require("joi");
+const client = require('../services/astra-db-client')();
+const findUser = async(email)=>{
+
+    const findUserQuery = "SELECT * FROM users_by_email WHERE email=?";
+    const user = await (await client).execute(findUserQuery, [email]);
+    return user;
+
+}
+
+
+
+
 
 function validator(requestBody){
     const schema = Joi.object({
@@ -10,4 +22,6 @@ function validator(requestBody){
     return schema.validate(requestBody);
 }
 
-module.exports.validator = validator;
+module.exports = {
+    findUser
+};

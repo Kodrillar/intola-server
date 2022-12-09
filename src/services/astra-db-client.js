@@ -1,4 +1,5 @@
 const {Client} = require("cassandra-driver");
+const env = require("../environment/env");
 
 module.exports = async function(){
 
@@ -7,8 +8,8 @@ module.exports = async function(){
             secureConnectBundle:"./secure-connect-forintola.zip"
         },
          credentials:{
-          username: process.env.CLIENT_ID,
-          password: process.env.CLIENT_SECRET      
+          username: env.CLIENT_ID,
+          password: env.CLIENT_SECRET
       },
     
       keyspace:"intola"
