@@ -1,5 +1,5 @@
 const client = require('../services/astra-db-client')();
-
+const Joi = require('joi');
 
 const addPurchase = async(email, products)=>{
     
@@ -15,8 +15,19 @@ const fetchPurchases=  async(email)=>{
 }
 
 
+function validateAddPurchaseRequest(requestBody){
+
+    const schema = Joi.object({
+        products : Joi.required()
+    });
+
+    return schema.validate(requestBody);
+}
+
+
 module.exports = {
 
     addPurchase,
     fetchPurchases,
+    validateAddPurchaseRequest
 }
