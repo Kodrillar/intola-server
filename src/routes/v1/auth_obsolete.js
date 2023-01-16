@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const asyncErrorHandler = require("../middleware/asyncErrorHandler");
 const client = require("../start/database")();
-const {jsonwebtoken} = require("../utils/webToken")
+const {jsonwebtoken} = require("../../utils/webToken")
 
 
 
