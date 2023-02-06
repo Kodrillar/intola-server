@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const client = require("../start/database")();
-const auth = require("../middleware/auth");
-const asyncErrorHandler = require("../middleware/asyncErrorHandler");
+const client = require("../../services/astra-db-client")();
+const auth = require("../../middleware/auth");
+const asyncErrorHandler = require("../../middleware/async-error-handler");
 
 
 router.post("/", auth, asyncErrorHandler(async (req, res)=>{

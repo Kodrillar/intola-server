@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const asyncErrorHandler = require("../middleware/asyncErrorHandler");
-const client = require("../start/database")();
+const asyncErrorHandler = require("../../middleware/async-error-handler");
+const client = require("../../services/astra-db-client")();
 const {jsonwebtoken} = require("../../utils/webToken")
 
 

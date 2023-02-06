@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const client = require("../start/database")();
-const auth = require("../middleware/auth");
-const asyncErrorHandler = require("../middleware/asyncErrorHandler");
-const imgurClient = require("../services/imgur_client");
+const client = require("../../services/astra-db-client")();
+const auth = require("../../middleware/auth");
+const asyncErrorHandler = require("../../middleware/async-error-handler");
+const imgurClient = require("../../services/imgur-client");
 
 
 // router.post('/', auth, asyncErrorHandler(async(req, res)=>{
