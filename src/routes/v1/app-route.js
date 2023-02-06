@@ -9,7 +9,7 @@ const delivery = require("../v1/delivery_obsolete");
 const purchase = require("../v1/purchase_obsolete");
 const path = require('path')
 
-appRoute.use((req, res, next)=>{ res.json({msg:'Kindly update your app to the latest version.'})})
+appRoute.use((req, res, next)=>{ res.status(404).json({msg:'Kindly update your app to the latest version.'})})
 appRoute.use("/uploads", express.static(path.join(__dirname, '..', '..', 'uploads')));
 appRoute.use("/user/register", user);
 appRoute.use("/user/auth", auth );
