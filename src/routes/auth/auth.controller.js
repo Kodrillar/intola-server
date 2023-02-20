@@ -42,10 +42,10 @@ const signUpController = async (req, res)=>{
     await authModel.createUser(email, fullname, password);
     const webToken = jsonwebtoken(email, fullname);
 
-    res.send({
+    res.status(201).json({
         userAlreadyExist: false,
             token: webToken,
-            msg:"success"
+            msg:"user created successfully!"
         });
 
 }
