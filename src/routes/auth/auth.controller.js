@@ -7,7 +7,7 @@ const signInController = async (req, res)=>{
     const {email, password} = req.body;
 
     const user = await authModel.findUser(email);
-    if(!user.rowLength) return res.status(404).json({userAlreadyExist:false, msg:"We looked realy hard, but we couldn't find a user with the given eamil!"});
+    if(!user.rowLength) return res.status(404).json({userAlreadyExist:false, msg:"We looked really hard, but we couldn't find a user with the given email!"});
 
     if(user.first().password !== password) return res.status(400)
     .json({ 

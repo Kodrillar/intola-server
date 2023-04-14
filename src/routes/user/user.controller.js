@@ -22,6 +22,15 @@ const fetchUserController = async (req, res)=>{
     })
 }
 
+const deleteUserController = async (req, res)=>{
+    const {email} = req.user;
+    await userModel.deleteUser(email);
+    res.json({
+        msg:"success"
+    })
+}
+
 module.exports = {
     fetchUserController,
+    deleteUserController
 }

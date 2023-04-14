@@ -1,11 +1,18 @@
 const Joi = require("joi");
 const client = require('../services/astra-db-client')();
+
+
 const findUser = async(email)=>{
 
     const findUserQuery = "SELECT * FROM users_by_email WHERE email=?";
     const user = await (await client).execute(findUserQuery, [email]);
     return user;
 
+}
+
+const deleteUser = async (email)=>{
+    const deleteUserQuery = "DELETE FROM users_by_email WHERE email=?";
+    await (await client).execute(deleteUserQuery, [email]);
 }
 
 
@@ -23,5 +30,6 @@ function validator(requestBody){
 }
 
 module.exports = {
-    findUser
+    findUser,
+    deleteUser
 };
